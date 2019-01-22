@@ -1,0 +1,85 @@
+@font-face {font-family: 'Open Sans Condensed';src: url('../assets/fonts/OpenSansCondensed-Light.ttf')}
+@font-face {font-family: 'Open Sans Condensed';src: url('../assets/fonts/OpenSansCondensed-Light.ttf')}
+
+.mainContainer {
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+    width: 350px;
+    height: 400px;
+}
+
+.centerStyle {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.staticTextDisplay {
+    font-size: 25px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    position: relative;
+    left: 20px;
+    top: 10px;
+    color: #757547;
+}
+
+.displayContainer {
+    background: #efefa0;
+    border: 8px solid #bfbf89;
+}
+
+.iconContainer {
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.tempDisplay {
+    line-height: 300px;
+    padding-left: 115px;
+    font-size: 140px;
+    color: #757547;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.observersBlock1Style {
+    border-right: 8px solid #bfbf89;
+    border-left: 8px solid #bfbf89;
+    border-bottom: 8px solid #bfbf89;
+    background: #efefa0;
+    height: 92px;
+}
+.observersBlock2Style {
+    height: 92px;
+    border-bottom: 8px solid #bfbf89;
+    background: #efefa0;
+}
+.observersBlock3Style {
+    border-left: 8px solid #bfbf89;
+    border-right: 8px solid #bfbf89;
+    border-bottom: 8px solid #bfbf89;
+    background: #efefa0;
+    height: 92px;
+}
+
+.observersBlock1ActiveStyle {
+    border-right: 8px solid #dbdbdb;
+    border-left: 8px solid #dbdbdb;
+    border-bottom: 8px solid #dbdbdb;
+    height: 92px;
+}
+.observersBlock2ActiveStyle {
+    height: 92px;
+    border-bottom: 8px solid #dbdbdb;
+}
+.observersBlock3ActiveStyle {
+    border-left: 8px solid #dbdbdb;
+    border-right: 8px solid #dbdbdb;
+    border-bottom: 8px solid #dbdbdb;
+    height: 92px;
+}
