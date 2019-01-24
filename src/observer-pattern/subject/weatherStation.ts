@@ -24,9 +24,7 @@ class WeatherStation implements Subject {
         }
     }
 
-
     setTemprature(temp: number) {
-        console.log(`WeatherStation: new temperature measurement: ${temp}`);
         this.temperature = temp;
         this.notifyObservers();
     }

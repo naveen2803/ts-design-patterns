@@ -1,6 +1,6 @@
 import React from 'react';
 import WeatherStation from './subject/weatherStation';
-import Fan from './observers/fan';
+import Appliance from './observers/appliance';
 import TemperatureDisplay from './observers/temperatureDisplay';
 
 import { Button } from 'reactstrap';
@@ -17,19 +17,19 @@ type State = {
 
 class ObserverPatternUI extends React.Component<Props, State>{
     private weatherStation: WeatherStation = new WeatherStation;
-    private temperatureDisplay: TemperatureDisplay = new TemperatureDisplay(this.weatherStation);
-    private fan: Fan = new Fan(this.weatherStation);
 
     constructor(props:Props) {
         super(props);
 
         this.state = {
-            temperature: 28
+            temperature: 0
         }
 
-        this.weatherStation.registerObserver(this.temperatureDisplay);
-        this.weatherStation.registerObserver(this.fan);
         this.setTemp = this.setTemp.bind(this);
+    }
+
+    componentDidMount() {
+        this.setTemp(30);
     }
 
     setTemp(temp: number) {
@@ -44,29 +44,27 @@ class ObserverPatternUI extends React.Component<Props, State>{
             <div>
                 <div className="mainContainer centerStyle">
                     <div className="container">
-                        <div className="row displayContainer">
-                            <span className="staticTextDisplay">Temperature today is:</span>
-                            <span className="tempDisplay">{this.state.temperature}</span>
-                        </div>
+                        <TemperatureDisplay weatherStation={this.weatherStation}/>
                         <div className="row">
                             <div className="col-md-4 observersBlock1Style">
                                 <div className="iconContainer">
-                                    <IconFanOff height="60" width="60" iconColor={this.state.temperature >= 25 ? "#227a18": "#999960"}/>
+                                    <Appliance weatherStation={this.weatherStation} name="fan1"/>
                                 </div>
                             </div>
                             <div className="col-md-4 observersBlock2Style">
                                 <div className="iconContainer">
-                                    <IconFanOff height="60" width="60" iconColor={this.state.temperature >= 30 ? "#227a18": "#999960"}/>
+                                    <Appliance weatherStation={this.weatherStation} name="fan2"/>
                                 </div>
                             </div>
                             <div className="col-md-4 observersBlock3Style">
                                 <div className="iconContainer">
-                                    <IconAirCon height="80" width="80" iconColor={this.state.temperature >= 35 ? "#227a18": "#999960"}/>
+                                    <Appliance weatherStation={this.weatherStation} name="ac"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <Button color="primary" onClick={() => this.setTemp(40)}>set temp to 40</Button>
             </div>
         );
     }
